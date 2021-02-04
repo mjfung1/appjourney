@@ -1,0 +1,30 @@
+<h1>Application List</h1>
+  <br/>
+    <div class="row">
+      <% @entries.each do |entry| %>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"><%= entry.company %></h5>
+              <p class="card-text"><%= entry.job_title %></p>
+              <p class="card-text overflow-scroll"><%= entry.url %></p>
+              <p class="card-text overflow-scroll"><%= entry.description %></p>
+              <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+              <%= link_to 'Show', entry, class: "btn btn-primary" %>
+              <%= link_to 'Edit', edit_entry_path(entry), class: "btn btn-primary"  %>
+              <%= link_to 'Trash it', entry, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"  %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <br/>
+      <br/>
+    
+
+
+<br>
+
+<%= link_to 'New Entry', new_entry_path, class: "btn btn-danger"  %>
+
+
